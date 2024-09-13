@@ -9,3 +9,15 @@ function changeButtonStatus(){
         button.classList.add('dashboard__item__button');
     }
 }
+
+function changeImageStatus(){
+    let image = document.getElementById('dashboard__item__img');
+
+    if (image.classList.contains('dashboard__item__img')){
+        image.classList.remove('dashboard__item__img');
+        image.classList.add('dashboard__item__img dashboard__item__img--rented');
+    } else {
+        image.classList.remove('dashboard__item__img dashboard__item__img--rented');
+        button.classList.add('dashboard__item__button');
+    }   
+}
