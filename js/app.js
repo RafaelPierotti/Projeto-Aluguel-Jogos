@@ -1,23 +1,22 @@
-function changeButtonStatus(){
-    let button = document.getElementById('dashboard__item__button');
+function changeStatus(id){
+    let game = document.getElementById(`game-${id}`);
+    let button = game.querySelector('.dashboard__item__button');
 
-    if (button.classList.contains('dashboard__item__button')){
-        button.classList.remove('dashboard__item__button');
-        button.classList.add('dashboard__item__button dashboard__item__button--return');
-    } else {
-        button.classList.remove('dashboard__item__button dashboard__item__button--return');
-        button.classList.add('dashboard__item__button');
-    }
+    changeImageButtonStatus(game);
 }
 
-function changeImageStatus(){
-    let image = document.getElementById('dashboard__item__img');
+function changeImageButtonStatus(game){
+    let image = game.querySelector('.dashboard__item__img');
+    let button = game.querySelector('.dashboard__item__button');
 
-    if (image.classList.contains('dashboard__item__img')){
-        image.classList.remove('dashboard__item__img');
-        image.classList.add('dashboard__item__img dashboard__item__img--rented');
+    if (image.classList.contains('dashboard__item__img--rented')){
+        image.classList.remove('dashboard__item__img--rented');
+        button.classList.remove('dashboard__item__button--return');
+        button.textContent = 'Alugar';
     } else {
-        image.classList.remove('dashboard__item__img dashboard__item__img--rented');
-        button.classList.add('dashboard__item__button');
+        image.classList.add('dashboard__item__img--rented');
+        button.classList.add('dashboard__item__button--return');
+        button.textContent = 'Devolver';
     }   
 }
+
